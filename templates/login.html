@@ -8,37 +8,6 @@
 </head>
 <body class="login">
 <div id="weather">
-<!--
-<table id="weather-inner">
-    <tr>
-        <td colspan="3"><span class="weather-place"></span></td>
-    </tr>
-    <tr>
-        <td rowspan="2"><div class="w-icon"><img class="weather-icon"></div></td>
-        <td rowspan="2"><span class="weather-temperature"></span></td>
-        <td><span>Min: </span><span class="weather-min-temperature"></span></td>
-    </tr>
-    <tr>
-        <td><span>Max: </span><span class="weather-max-temperature"></span></td>
-    </tr>
-    <tr>
-        <td colspan="3">
-			<span class="weather-description"></span>
-			<span>, Wind: </span>
-			<span class="weather-wind-speed"></span></td>
-    </tr>
-    <tr>
-        <td colspan="3">
-			<span>Regen: </span>
-			<span class="weather-humidity"></span></td>
-    </tr>
-    <tr>
-        <td colspan="3"><span><img class="s-rise-icon" src="skins/offerel/openWeather/img/morning.png"></span><span class="weather-sunrise"></span>
-			<span><img class="s-set-icon" src="skins/offerel/openWeather/img/evening.png"></span><span class="weather-sunset"></span></td>
-    </tr>
-</table>
--->
-
 	<div id="weather-inner">
 		<div class="weather-place"></div>
 		<div class="w-icon"><img class="weather-icon"></div>
@@ -104,8 +73,8 @@
 " />
 <script src="/openWeather/openweather.js"></script>
 <script>
-	document.getElementById("rcmloginuser").placeholder = "Benutzername";
-	document.getElementById("rcmloginpwd").placeholder = "Passwort";
+	document.getElementById("rcmloginuser").placeholder = '<roundcube:label name="username" quoting="javascript" />';
+	document.getElementById("rcmloginpwd").placeholder = '<roundcube:label name="password" quoting="javascript" />';
 	
 	var options = {
 	  enableHighAccuracy: true,
@@ -121,12 +90,12 @@
 
 	function oWeather(pos) {
 	var crd = pos.coords;
+	var userLang = navigator.language || navigator.userLanguage;
 		$('.weather-temperature').openWeather({
 			key: 'c9d49310f8023ee2617a7634de23c2aa',
-			//city: 'Landshut',
 			lat: crd.latitude,
 			lng: crd.longitude,
-			lang: 'de',
+			lang: userLang,
 			descriptionTarget: '.weather-description',
 			windSpeedTarget: '.weather-wind-speed',
 			minTemperatureTarget: '.weather-min-temperature',
