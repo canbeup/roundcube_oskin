@@ -1,0 +1,8 @@
+{
+  "name": "Offerel",
+  "author": "Offerel",
+  "url": "https://github.com/Offerel",
+  "license": "Creative Commons",
+  "license-url": "<link to license text>",
+  "extends": "larry"
+}
