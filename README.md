@@ -1,0 +1,2 @@
+# Offerel Skin (Roundcube)
+This skin is a derivat from the larry skin and changes only a small part of the standard skin. Primary this are the login screen. Its has now a more modern look. Additionally, the current local weather is displayed in the top right corner of the login screen. You must allow access to the JavaScript Geolocation API to let this work. The beautiful backgrounds are from Unsplash.org and but you can use also every own image. But your image into the backgrounds folder and it will be picked in a random order from this folder.
