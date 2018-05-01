@@ -1,39 +1,15 @@
 <roundcube:object name="doctype" value="html5" />
-<html>
+<html class="login">
 <head>
 <title><roundcube:object name="pagetitle" /></title>
-<roundcube:include file="/includes/links.html" skinPath="skins/larry" />
+<roundcube:include file="/includes/links.html"  />
 <link rel="stylesheet" type="text/css" href="/styles_offerel.css" />
-<link rel="shortcut icon" href="/images/favicon.ico"/>
 </head>
 <body class="login">
-<div id="weather">
-	<div id="weather-inner">
-		<div class="weather-place"></div>
-		<div class="w-icon"><img class="weather-icon"></div>
-		<div class="weather-temperature"></div>
-		<div class="w-min-max">
-			<div><span>Min: </span><span class="weather-min-temperature"></span></div>
-			<div><span>Max: </span><span class="weather-max-temperature"></span></div>
-		</div>
-		<div class="wind">
-			<span class="weather-description"></span>
-			<span>, Wind: </span><span class="weather-wind-speed"></span>
-		</div>
-		<div class="w-hum">
-			<span>Regen: </span>
-			<span class="weather-humidity"></span>
-		</div>
-		<div class="w-sun">
-			<span><img class="s-rise-icon" src="skins/offerel/openWeather/img/morning.png"></span><span class="weather-sunrise"></span>
-			<span><img class="s-set-icon" src="skins/offerel/openWeather/img/evening.png"></span><span class="weather-sunset"></span></div>
-	</div>
-
-</div>
 <h1 class="voice"><roundcube:object name="productname" /> <roundcube:label name="login" /></h1>
 <div id="login-form">
 <div class="box-inner" role="main">
-<roundcube:object name="logo" src="/images/roundcube_logo.png" id="logo" />
+<roundcube:object name="logo" src="/images/mail1.png" id="logo" />
 <span class="hline">Webmail Login</span>
 <roundcube:form name="form" method="post">
 <roundcube:object name="loginform" form="form" size="40" submit=true />
@@ -71,50 +47,9 @@
   /../larry/images/splitter.png
   /../larry/images/watermark.jpg
 " />
-<script src="/openWeather/openweather.js"></script>
 <script>
 	document.getElementById("rcmloginuser").placeholder = '<roundcube:label name="username" quoting="javascript" />';
 	document.getElementById("rcmloginpwd").placeholder = '<roundcube:label name="password" quoting="javascript" />';
-	
-	var options = {
-	  enableHighAccuracy: true,
-	  timeout: 5000,
-	  maximumAge: 0
-	};
-
-	function error(err) {
-	  console.warn(`ERROR(${err.code}): ${err.message}`);
-	}
-
-	navigator.geolocation.getCurrentPosition(oWeather, error, options);
-
-	function oWeather(pos) {
-	var crd = pos.coords;
-	var userLang = navigator.language || navigator.userLanguage;
-		$('.weather-temperature').openWeather({
-			key: 'c9d49310f8023ee2617a7634de23c2aa',
-			lat: crd.latitude,
-			lng: crd.longitude,
-			lang: userLang,
-			descriptionTarget: '.weather-description',
-			windSpeedTarget: '.weather-wind-speed',
-			minTemperatureTarget: '.weather-min-temperature',
-			maxTemperatureTarget: '.weather-max-temperature',
-			humidityTarget: '.weather-humidity',
-			sunriseTarget: '.weather-sunrise',
-			sunsetTarget: '.weather-sunset',
-			placeTarget: '.weather-place',
-			iconTarget: '.weather-icon',
-			customIcons: 'skins/offerel/openWeather/img/icons/weather/',
-			success: function(data) {
-				$('.weather-wrapper').show();
-			},
-			error: function(data) {
-				console.log(data.error);
-				$('.weather-wrapper').remove();
-			}
-		});
-	};
-	</script>
+</script>
 </body>
 </html>
